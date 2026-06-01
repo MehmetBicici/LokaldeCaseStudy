@@ -28,6 +28,8 @@ final class SplashViewController: BaseViewController {
     
     private let viewModel = SplashViewModel()
     
+    weak var navigationDelegate: SplashNavigationDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
@@ -38,7 +40,7 @@ final class SplashViewController: BaseViewController {
 
 private extension SplashViewController {
     func prepareUI() {
-        self.view.backgroundColor = Constants.backgroundColor
+        view.backgroundColor = Constants.backgroundColor
         prepareSplashImageView()
         prepareSplashTitleLabel()
     }
@@ -62,6 +64,6 @@ private extension SplashViewController {
 // MARK: - SplashViewModelDelegate
 extension SplashViewController: SplashViewModelDelegate {
     func navigateProvidersPage() {
-        view.window?.switchRootViewController(UIViewController())
+        navigationDelegate?.navigateToProviderList()
     }
 }
