@@ -1,0 +1,20 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "base_language_marker" : {
+      "extractionState" : "manual"
+    },
+    "splash_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "okalde"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}
