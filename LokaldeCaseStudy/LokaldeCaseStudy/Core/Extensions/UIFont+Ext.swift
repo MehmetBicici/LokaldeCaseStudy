@@ -39,4 +39,8 @@ extension UIFont {
     static var buttonText: UIFont {
         return systemFont(design: design, size: 17, weight: .bold)
     }
+    
+    static var splashTitle: UIFont {
+        return systemFont(design: design, size: 40, weight: .bold)
+    }
 }
