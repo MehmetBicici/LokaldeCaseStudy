@@ -19,6 +19,18 @@ class BaseViewController: UIViewController {
         debugPrint("🗑 DEINIT DETECTED: \(String(describing: type(of: self))) removed from the memory.")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardDismissal()

@@ -33,6 +33,7 @@ protocol ProvidersViewModelInterface {
     func updateSearchQuery(_ query: String)
     func applyFilter(options: [FilterOptionModel], for type: FilterType)
     func getAvailableOptions(for type: FilterType) -> [String]
+    func getProviderDTO(at index: Int) -> ProviderDTO?
 }
 
 final class ProvidersViewModel: ProvidersViewModelInterface {
@@ -52,6 +53,7 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
     private var availableCountries: [String] = []
     private var availableCities: [String] = []
     private var availableServices: [String] = []
+    private var rawProviders: [ProviderDTO] = []
     
     init(providerService: ProviderServiceProtocol = MockDataService(), delegate: ProvidersViewModelDelegate) {
         self.providerService = providerService
@@ -77,6 +79,8 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
             
             switch result {
             case .success(let dtoList):
+                self.rawProviders = dtoList
+                
                 let mappedProviders = dtoList.map { dto in
                     ProviderListTableViewCellModel(
                         id: dto.id,
@@ -155,6 +159,12 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
         case .city: return availableCities
         case .services: return availableServices
         }
+    }
+    
+    func getProviderDTO(at index: Int) -> ProviderDTO? {
+        guard index < providers.count else { return nil }
+        let selectedUIModel = providers[index]
+        return rawProviders.first(where: { $0.id == selectedUIModel.id })
     }
 }
 
