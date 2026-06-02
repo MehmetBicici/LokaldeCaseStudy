@@ -1,0 +1,154 @@
+{
+  "providers": [
+    {
+      "id": "1",
+      "name": "Dr. Sarah Chen",
+      "profileImageUrl": "https://images.pexels.com/photos/32254667/pexels-photo-32254667.jpeg",
+      "specialty": "Cardiology",
+      "country": "USA",
+      "city": "New York",
+      "rating": 4.9,
+      "contactInfo": {
+        "phone": "+1 212-555-0198",
+        "email": "dr.chen@healthmail.com",
+        "address": "123 Heart Center Ave, Suite 400, New York, NY 10001"
+      },
+      "bio": "Dr. Sarah Chen is a board-certified cardiologist with over 15 years of experience specializing in preventive cardiology and echocardiography."
+    },
+    {
+      "id": "2",
+      "name": "Dr. Michael Smith",
+      "profileImageUrl": "https://images.pexels.com/photos/32115957/pexels-photo-32115957.jpeg",
+      "specialty": "Neurology",
+      "country": "USA",
+      "city": "Los Angeles",
+      "rating": 4.8,
+      "contactInfo": {
+        "phone": "+1 310-555-0122",
+        "email": "msmith.neuro@medcenter.com",
+        "address": "4500 Brain & Spine Blvd, Los Angeles, CA 90048"
+      },
+      "bio": "Specializing in movement disorders and Parkinson's disease, Dr. Smith leads the clinical research team at LA Neuro Institute."
+    },
+    {
+      "id": "3",
+      "name": "Dr. Ayşe Kaya",
+      "profileImageUrl": "https://images.pexels.com/photos/8313258/pexels-photo-8313258.jpeg",
+      "specialty": "Dermatology",
+      "country": "Turkey",
+      "city": "Antalya",
+      "rating": 4.9,
+      "contactInfo": {
+        "phone": "+90 532 555 12 34",
+        "email": "info@aysekaya.com.tr",
+        "address": "Şirinyalı Mah. İsmet Gökşen Cad. No:12, Muratpaşa, Antalya"
+      },
+      "bio": "Dr. Ayşe Kaya, estetik dermatoloji ve lazer tedavileri konusunda uzmanlaşmıştır. 10 yılı aşkın süredir Antalya'da kendi kliniğinde hizmet vermektedir."
+    },
+    {
+      "id": "4",
+      "name": "Dr. Emily Johnson",
+      "profileImageUrl": "https://images.pexels.com/photos/8376281/pexels-photo-8376281.jpeg",
+      "specialty": "Pediatrics",
+      "country": "USA",
+      "city": "Chicago",
+      "rating": 4.7,
+      "contactInfo": {
+        "phone": "+1 312-555-0873",
+        "email": "hello@chicago-pediatrics.com",
+        "address": "789 Childrens Way, Chicago, IL 60611"
+      },
+      "bio": "Dedicated pediatrician committed to providing compassionate and comprehensive medical care for infants, children, and adolescents."
+    },
+    {
+      "id": "5",
+      "name": "Dr. Hans Müller",
+      "profileImageUrl": "https://images.pexels.com/photos/5867737/pexels-photo-5867737.jpeg",
+      "specialty": "Orthopedics",
+      "country": "Germany",
+      "city": "Berlin",
+      "rating": 4.6,
+      "contactInfo": {
+        "phone": "+49 30 1234567",
+        "email": "kontakt@mueller-ortho.de",
+        "address": "Friedrichstraße 43, 10117 Berlin, Germany"
+      },
+      "bio": "Dr. Müller specializes in sports medicine and minimally invasive joint replacement surgeries, working with professional athletes across Europe."
+    },
+    {
+      "id": "6",
+      "name": "Dr. Ali Yılmaz",
+      "profileImageUrl": "https://images.pexels.com/photos/7407063/pexels-photo-7407063.jpeg",
+      "specialty": "Cardiology",
+      "country": "Turkey",
+      "city": "Istanbul",
+      "rating": 4.8,
+      "contactInfo": {
+        "phone": "+90 212 555 98 76",
+        "email": "ali.yilmaz@hastane.com",
+        "address": "Teşvikiye Mah. Hakkı Yeten Cad. Şişli, Istanbul"
+      },
+      "bio": "Girişimsel kardiyoloji uzmanı. Koroner anjiyografi ve stent işlemlerinde yüksek başarı oranına sahip, akademik çalışmaları bulunan deneyimli hekim."
+    },
+    {
+      "id": "7",
+      "name": "Dr. Maria Garcia",
+      "profileImageUrl": "https://images.pexels.com/photos/7446991/pexels-photo-7446991.jpeg",
+      "specialty": "Psychiatry",
+      "country": "Spain",
+      "city": "Madrid",
+      "rating": 4.9,
+      "contactInfo": {
+        "phone": "+34 91 123 45 67",
+        "email": "consulta@garciapsy.es",
+        "address": "Calle de Alcalá, 15, 28014 Madrid, Spain"
+      },
+      "bio": "Focusing on adult ADHD and anxiety disorders, Dr. Garcia employs a holistic approach combining cognitive-behavioral therapy and modern psychopharmacology."
+    },
+    {
+      "id": "8",
+      "name": "Dr. James Wilson",
+      "profileImageUrl": "https://images.pexels.com/photos/5888160/pexels-photo-5888160.jpeg",
+      "specialty": "General Surgery",
+      "country": "UK",
+      "city": "London",
+      "rating": 4.5,
+      "contactInfo": {
+        "phone": "+44 20 7123 4567",
+        "email": "jwilson.surgery@londonmed.co.uk",
+        "address": "10 Harley St, London W1G 9PF, United Kingdom"
+      },
+      "bio": "Consultant general surgeon with a special interest in laparoscopic hernia repairs and gallbladder surgeries. Over 5000 successful procedures."
+    },
+    {
+      "id": "9",
+      "name": "Dr. Yuki Tanaka",
+      "profileImageUrl": "https://images.pexels.com/photos/27666717/pexels-photo-27666717.jpeg",
+      "specialty": "Ophthalmology",
+      "country": "Japan",
+      "city": "Tokyo",
+      "rating": 4.8,
+      "contactInfo": {
+        "phone": "+81 3-1234-5678",
+        "email": "vision@tanaka-eye.jp",
+        "address": "2-4-1 Marunouchi, Chiyoda-ku, Tokyo 100-6390"
+      },
+      "bio": "Pioneer in LASIK and cataract refractive surgeries. Dr. Tanaka provides state-of-the-art vision correction services."
+    },
+    {
+      "id": "10",
+      "name": "Dr. Sophie Martin",
+      "profileImageUrl": "https://images.pexels.com/photos/5407222/pexels-photo-5407222.jpeg",
+      "specialty": "Dermatology",
+      "country": "France",
+      "city": "Paris",
+      "rating": 4.7,
+      "contactInfo": {
+        "phone": "+33 1 23 45 67 89",
+        "email": "dr.martin@paris-derma.fr",
+        "address": "15 Avenue des Champs-Élysées, 75008 Paris, France"
+      },
+      "bio": "Expert in medical and cosmetic dermatology. Dr. Martin is renowned for her personalized acne treatments and anti-aging protocols."
+    }
+  ]
+}
