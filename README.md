@@ -8,7 +8,7 @@ Bu proje, iOS platformunda modern tasarım desenleri, temiz kod (Clean Code) pre
 ---
 ## 🎥 Proje Tanıtım Videosu
 
-Projeyi mimari kararlar, filtreleme algoritması ve kullanıcı deneyimi detaylarıyla anlattığım 10 dakikalık kısa sunumu aşağıdan izleyebilirsin:
+Projeyi mimari kararlar, filtreleme algoritması ve kullanıcı deneyimi detaylarıyla anlattığım 10 dakikalık kısa sunumu aşağıdan izleyebilirsiniz.
 
 <p align="left">
   <a href="https://www.loom.com/share/3c2e692aa36346b6861e4b5f84025bf7" target="_blank" rel="noopener noreferrer">
