@@ -14,6 +14,7 @@ struct ProviderListTableViewCellModel {
     let specialty: String?
     let city: String?
     let rating: Double?
+    let country: String?
     
     var subtitle: String {
         return [specialty, city]

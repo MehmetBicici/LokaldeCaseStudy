@@ -5,7 +5,7 @@
       "name": "Dr. Sarah Chen",
       "profileImageUrl": "https://images.pexels.com/photos/32254667/pexels-photo-32254667.jpeg",
       "specialty": "Cardiology",
-      "country": "USA",
+      "country": "🇺🇸 USA",
       "city": "New York",
       "rating": 4.9,
       "contactInfo": {
@@ -20,7 +20,7 @@
       "name": "Dr. Michael Smith",
       "profileImageUrl": "https://images.pexels.com/photos/32115957/pexels-photo-32115957.jpeg",
       "specialty": "Neurology",
-      "country": "USA",
+      "country": "🇺🇸 USA",
       "city": "Los Angeles",
       "rating": 4.8,
       "contactInfo": {
@@ -35,7 +35,7 @@
       "name": "Dr. Ayşe Kaya",
       "profileImageUrl": "https://images.pexels.com/photos/8313258/pexels-photo-8313258.jpeg",
       "specialty": "Dermatology",
-      "country": "Turkey",
+      "country": "🇹🇷 Turkey",
       "city": "Antalya",
       "rating": 4.9,
       "contactInfo": {
@@ -50,7 +50,7 @@
       "name": "Dr. Emily Johnson",
       "profileImageUrl": "https://images.pexels.com/photos/8376281/pexels-photo-8376281.jpeg",
       "specialty": "Pediatrics",
-      "country": "USA",
+      "country": "🇺🇸 USA",
       "city": "Chicago",
       "rating": 4.7,
       "contactInfo": {
@@ -65,7 +65,7 @@
       "name": "Dr. Hans Müller",
       "profileImageUrl": "https://images.pexels.com/photos/5867737/pexels-photo-5867737.jpeg",
       "specialty": "Orthopedics",
-      "country": "Germany",
+      "country": "🇩🇪 Germany",
       "city": "Berlin",
       "rating": 4.6,
       "contactInfo": {
@@ -80,7 +80,7 @@
       "name": "Dr. Ali Yılmaz",
       "profileImageUrl": "https://images.pexels.com/photos/7407063/pexels-photo-7407063.jpeg",
       "specialty": "Cardiology",
-      "country": "Turkey",
+      "country": "🇹🇷 Turkey",
       "city": "Istanbul",
       "rating": 4.8,
       "contactInfo": {
@@ -95,7 +95,7 @@
       "name": "Dr. Maria Garcia",
       "profileImageUrl": "https://images.pexels.com/photos/7446991/pexels-photo-7446991.jpeg",
       "specialty": "Psychiatry",
-      "country": "Spain",
+      "country": "🇪🇸 Spain",
       "city": "Madrid",
       "rating": 4.9,
       "contactInfo": {
@@ -110,7 +110,7 @@
       "name": "Dr. James Wilson",
       "profileImageUrl": "https://images.pexels.com/photos/5888160/pexels-photo-5888160.jpeg",
       "specialty": "General Surgery",
-      "country": "UK",
+      "country": "🇬🇧 UK",
       "city": "London",
       "rating": 4.5,
       "contactInfo": {
@@ -125,7 +125,7 @@
       "name": "Dr. Yuki Tanaka",
       "profileImageUrl": "https://images.pexels.com/photos/27666717/pexels-photo-27666717.jpeg",
       "specialty": "Ophthalmology",
-      "country": "Japan",
+      "country": "🇯🇵 Japan",
       "city": "Tokyo",
       "rating": 4.8,
       "contactInfo": {
@@ -140,7 +140,7 @@
       "name": "Dr. Sophie Martin",
       "profileImageUrl": "https://images.pexels.com/photos/5407222/pexels-photo-5407222.jpeg",
       "specialty": "Dermatology",
-      "country": "France",
+      "country": "🇫🇷 France",
       "city": "Paris",
       "rating": 4.7,
       "contactInfo": {

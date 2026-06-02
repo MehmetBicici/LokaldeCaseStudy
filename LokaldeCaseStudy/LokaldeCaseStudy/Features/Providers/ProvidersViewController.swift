@@ -51,6 +51,8 @@ final class ProvidersViewController: BaseViewController {
     @IBOutlet private weak var filterPillCollectionView: UICollectionView!
     @IBOutlet private weak var providersListTableView: UITableView!
     
+    weak var navigationDelegate: ProvidersNavigationDelegate?
+    
     private lazy var viewModel: ProvidersViewModelInterface = {
         return ProvidersViewModel(delegate: self)
     }()
@@ -230,7 +232,6 @@ extension ProvidersViewController: ProvidersViewModelDelegate {
             guard let self = self else { return }
             self.infoStateView.isHidden = true
             self.providersListTableView.isHidden = false
-            self.filterPillCollectionView.isHidden = false
             self.providersListTableView.reloadData()
         }
     }
@@ -238,7 +239,6 @@ extension ProvidersViewController: ProvidersViewModelDelegate {
     func showEmptyState() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.filterPillCollectionView.isHidden = true
             self.providersListTableView.isHidden = true
             self.infoStateView.configure(with: .emptySearch)
             self.infoStateView.isHidden = false
@@ -248,7 +248,6 @@ extension ProvidersViewController: ProvidersViewModelDelegate {
     func showErrorState(message: String) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.filterPillCollectionView.isHidden = true
             self.providersListTableView.isHidden = true
             self.infoStateView.configure(with: .error(message: message))
             self.infoStateView.isHidden = false
@@ -263,7 +262,9 @@ extension ProvidersViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - UICollectionViewDataSource & Delegate
 extension ProvidersViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.filters.count
     }
@@ -286,16 +287,32 @@ extension ProvidersViewController: UICollectionViewDataSource, UICollectionViewD
         }
         
         collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.toggleFilterSelection(at: indexPath.row)
+        let filterType: FilterType
+        switch indexPath.row {
+        case 0: filterType = .country
+        case 1: filterType = .city
+        case 2: filterType = .services
+        default: return
+        }
+        
+        let activeFilters = viewModel.getActiveFilters(for: filterType)
+        
+        let availableOptions = viewModel.getAvailableOptions(for: filterType)
+        
+        navigationDelegate?.presentFilterSheet(for: filterType,
+                                               filterDelegate: self,
+                                               activeFilters: activeFilters,
+                                               availableOptions: availableOptions)
+        
+        collectionView.reloadItems(at: [indexPath])
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        viewModel.toggleFilterSelection(at: indexPath.row)
+        collectionView.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -335,8 +352,13 @@ extension ProvidersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // İleride detay sayfasına gitmek için burası kullanılacak
         let selectedProvider = viewModel.providers[indexPath.section]
         print("\(selectedProvider.name) seçildi.")
+    }
+}
+
+extension ProvidersViewController: FiltersViewControllerDelegate {
+    func didApplyFilters(_ selectedOptions: [FilterOptionModel], type: FilterType) {
+        viewModel.applyFilter(options: selectedOptions, for: type)
     }
 }
