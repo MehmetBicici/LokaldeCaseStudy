@@ -15,8 +15,16 @@ protocol SplashViewModelDelegate: AnyObject {
     func navigateProvidersPage()
 }
 
-final class SplashViewModel {
-    weak var delegate: SplashViewModelDelegate?
+protocol SplashViewModelInterface {
+    func startSplashSequence()
+}
+
+final class SplashViewModel: SplashViewModelInterface {
+    private weak var delegate: SplashViewModelDelegate?
+    
+    init(delegate: SplashViewModelDelegate) {
+        self.delegate = delegate
+    }
     
     func startSplashSequence() {
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.delay) { [weak self] in

@@ -26,14 +26,15 @@ final class SplashViewController: BaseViewController {
     @IBOutlet private weak var splashImageView: UIImageView!
     @IBOutlet private weak var splashTitleLabel: UILabel!
     
-    private let viewModel = SplashViewModel()
+    private lazy var viewModel: SplashViewModelInterface = {
+        return SplashViewModel(delegate: self)
+    }()
     
     weak var navigationDelegate: SplashNavigationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
-        prepareViewModel()
         viewModel.startSplashSequence()
     }
 }
@@ -55,13 +56,8 @@ private extension SplashViewController {
         splashTitleLabel.font = Constants.SplashTitleLabel.font
         splashTitleLabel.text = Constants.SplashTitleLabel.text
     }
-    
-    func prepareViewModel() {
-        viewModel.delegate = self
-    }
 }
 
-// MARK: - SplashViewModelDelegate
 extension SplashViewController: SplashViewModelDelegate {
     func navigateProvidersPage() {
         navigationDelegate?.navigateToProviderList()
