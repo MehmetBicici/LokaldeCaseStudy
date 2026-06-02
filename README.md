@@ -1,11 +1,11 @@
-# Provider Finder & Booking App 🚀
+# Lokalde Case Study 🚀
 
 [![Swift](https://img.shields.io/badge/Swift-5.x-FA7343.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-17.0+-000000.svg)](https://apple.com/ios)
 [![Architecture](https://img.shields.io/badge/Architecture-MVVM--C-4BC51D.svg)]()
 
 Bu proje, iOS platformunda modern tasarım desenleri, temiz kod (Clean Code) prensipleri ve sürdürülebilir mimari yaklaşımları kullanılarak geliştirilmiş bir örnek olay (Case Study) çalışmasıdır.
-
+---
 ## 🎥 Proje Tanıtım Videosu
 
 Projeyi mimari kararlar, filtreleme algoritması ve kullanıcı deneyimi detaylarıyla anlattığım 10 dakikalık kısa sunumu aşağıdan izleyebilirsin:
@@ -69,6 +69,14 @@ Kullanıcı deneyimini "Premium" hissettirmek için iOS'in modern API'leri kulla
 
 * İş mantığının doğru çalıştığını kanıtlamak adına `XCTest` framework'ü ile Unit Test entegrasyonu başlatılmıştır. 
 * GIVEN-WHEN-THEN standartlarına uygun olarak filtreleme mantıkları (`FiltersViewModelTests`) test edilmiş, ViewModel'in arayüzden bağımsız olarak sağlıklı çalıştığı doğrulanmıştır.
+
+## 📱 Uygulama Görselleri
+
+<p align="center">
+  <img src="screenshots/one.png" width="30%" />
+  <img src="screenshots/two.png" width="30%" />
+  <img src="screenshots/three.png" width="30%" />
+</p>
 
 ---
 
