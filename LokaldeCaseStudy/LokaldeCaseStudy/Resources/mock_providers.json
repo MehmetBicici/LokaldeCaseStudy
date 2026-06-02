@@ -22,7 +22,7 @@
       "specialty": "Neurology",
       "country": "🇺🇸 USA",
       "city": "Los Angeles",
-      "rating": 4.8,
+      "rating": 3.8,
       "contactInfo": {
         "phone": "+1 310-555-0122",
         "email": "msmith.neuro@medcenter.com",
@@ -37,7 +37,7 @@
       "specialty": "Dermatology",
       "country": "🇹🇷 Turkey",
       "city": "Antalya",
-      "rating": 4.9,
+      "rating": 4.3,
       "contactInfo": {
         "phone": "+90 532 555 12 34",
         "email": "info@aysekaya.com.tr",
@@ -67,7 +67,7 @@
       "specialty": "Orthopedics",
       "country": "🇩🇪 Germany",
       "city": "Berlin",
-      "rating": 4.6,
+      "rating": 2.6,
       "contactInfo": {
         "phone": "+49 30 1234567",
         "email": "kontakt@mueller-ortho.de",
@@ -82,7 +82,7 @@
       "specialty": "Cardiology",
       "country": "🇹🇷 Turkey",
       "city": "Istanbul",
-      "rating": 4.8,
+      "rating": 1.8,
       "contactInfo": {
         "phone": "+90 212 555 98 76",
         "email": "ali.yilmaz@hastane.com",
@@ -97,7 +97,7 @@
       "specialty": "Psychiatry",
       "country": "🇪🇸 Spain",
       "city": "Madrid",
-      "rating": 4.9,
+      "rating": 5.0,
       "contactInfo": {
         "phone": "+34 91 123 45 67",
         "email": "consulta@garciapsy.es",
@@ -142,7 +142,7 @@
       "specialty": "Dermatology",
       "country": "🇫🇷 France",
       "city": "Paris",
-      "rating": 4.7,
+      "rating": 2.1,
       "contactInfo": {
         "phone": "+33 1 23 45 67 89",
         "email": "dr.martin@paris-derma.fr",
