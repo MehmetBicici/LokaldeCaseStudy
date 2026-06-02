@@ -26,6 +26,11 @@ protocol ProvidersNavigationDelegate: AnyObject {
                             filterDelegate: FiltersViewControllerDelegate,
                             activeFilters: [String],
                             availableOptions: [String])
+    func navigateToProviderDetails(with provider: ProviderDTO)
+}
+
+protocol ProviderDetailsNavigationDelegate: AnyObject {
+   
 }
 
 final class AppCoordinator: Coordinator {
@@ -84,4 +89,17 @@ extension AppCoordinator: ProvidersNavigationDelegate {
         
         navigationController.present(filterVC, animated: true)
     }
+    
+    func navigateToProviderDetails(with provider: ProviderDTO) {
+        let detailsVC = ProviderDetailsViewController()
+        
+        detailsVC.providerDTO = provider
+        detailsVC.navigationDelegate = self
+        
+        navigationController.pushViewController(detailsVC, animated: true)
+    }
+}
+
+extension AppCoordinator: ProviderDetailsNavigationDelegate {
+
 }

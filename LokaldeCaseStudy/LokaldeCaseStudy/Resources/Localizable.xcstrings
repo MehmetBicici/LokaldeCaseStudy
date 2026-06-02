@@ -10,6 +10,12 @@
             "state" : "translated",
             "value" : "Apply"
           }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygula"
+          }
         }
       }
     },
@@ -33,6 +39,40 @@
     "base_language_marker" : {
       "extractionState" : "manual"
     },
+    "biography_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biography"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biyografi"
+          }
+        }
+      }
+    },
+    "book_appointment_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book Appointment"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Randevu Al"
+          }
+        }
+      }
+    },
     "city" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -50,6 +90,23 @@
         }
       }
     },
+    "contact_information_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact Information"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İletişim Bilgileri"
+          }
+        }
+      }
+    },
     "country" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -63,6 +120,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ülke"
+          }
+        }
+      }
+    },
+    "email_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
           }
         }
       }
@@ -118,6 +192,57 @@
         }
       }
     },
+    "location_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adres"
+          }
+        }
+      }
+    },
+    "phone_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Telefon"
+          }
+        }
+      }
+    },
+    "provider_details_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provider Details"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil Detayları"
+          }
+        }
+      }
+    },
     "providers_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -131,6 +256,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sağlık Hizmeti Sağlayıcıları"
+          }
+        }
+      }
+    },
+    "rate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puan"
           }
         }
       }

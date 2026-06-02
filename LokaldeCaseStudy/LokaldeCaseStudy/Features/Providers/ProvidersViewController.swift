@@ -97,6 +97,7 @@ private extension ProvidersViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: Constants.titleColor
         ]
+        navigationItem.backButtonDisplayMode = .minimal
     }
     
     func setupSearchController() {
@@ -150,6 +151,10 @@ private extension ProvidersViewController {
         
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
+
+        if #available(iOS 16.0, *) {
+            navigationItem.preferredSearchBarPlacement = .stacked
+        }
         definesPresentationContext = true
         
         DispatchQueue.main.async {
@@ -352,8 +357,14 @@ extension ProvidersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedProvider = viewModel.providers[indexPath.section]
-        print("\(selectedProvider.name) seçildi.")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let selectedProviderDTO = viewModel.getProviderDTO(at: indexPath.section) else {
+            return
+        }
+        
+        navigationDelegate?.navigateToProviderDetails(with: selectedProviderDTO)
     }
 }
 
