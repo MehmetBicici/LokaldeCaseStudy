@@ -6,31 +6,27 @@
 //
 
 import XCTest
-@testable import LokaldeCaseStudy
+@testable import LokaldeCaseStudy 
 
-final class LokaldeCaseStudyTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class FiltersViewModelTests: XCTestCase {
+    
+    func test_toggleSelection_shouldChangeSelectionState() {
+        print("GIVEN: Initializing ViewModel with mock cities...")
+        let mockCities = ["Antalya", "Istanbul", "Izmir"]
+        let viewModel = FiltersViewModel(filterType: .city,
+                                         activeSelection: [],
+                                         availableOptions: mockCities)
+        
+        print("GIVEN: Triggering viewDidLoad to load options...")
+        viewModel.viewDidLoad()
+        
+        print("GIVEN: Asserting initial state is false (not selected)...")
+        XCTAssertFalse(viewModel.options[0].isSelected, "Initial state should not be selected.")
+        
+        print("WHEN: Toggling selection at index 0...")
+        viewModel.toggleSelection(at: 0)
+        
+        print("THEN: Asserting new state is true (selected)...")
+        XCTAssertTrue(viewModel.options[0].isSelected, "State should be selected after toggle.")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
