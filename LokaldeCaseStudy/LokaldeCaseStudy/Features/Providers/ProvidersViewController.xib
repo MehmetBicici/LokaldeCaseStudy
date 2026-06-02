@@ -20,16 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-mm-l0u">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cm-DW-pug">
                     <rect key="frame" x="16" y="118" width="361" height="658"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="F4w-Di-e40">
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="F4w-Di-e40">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="64"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="RfU-2i-SyO"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G4p-wZ-AyN">
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G4p-wZ-AyN">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -42,17 +42,27 @@
                             <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="F4w-Di-e40" secondAttribute="trailing" id="9Zq-z5-s8c"/>
+                        <constraint firstItem="F4w-Di-e40" firstAttribute="top" secondItem="8cm-DW-pug" secondAttribute="top" id="ECl-Gi-LW1"/>
+                        <constraint firstAttribute="trailing" secondItem="ngr-II-CHg" secondAttribute="trailing" id="ZPD-a1-4KI"/>
+                        <constraint firstItem="ngr-II-CHg" firstAttribute="leading" secondItem="8cm-DW-pug" secondAttribute="leading" id="btF-ls-ee3"/>
+                        <constraint firstItem="ngr-II-CHg" firstAttribute="top" secondItem="F4w-Di-e40" secondAttribute="bottom" id="cQz-lz-aJ8"/>
+                        <constraint firstAttribute="bottom" secondItem="ngr-II-CHg" secondAttribute="bottom" id="gEe-fg-8Ix"/>
+                        <constraint firstItem="F4w-Di-e40" firstAttribute="leading" secondItem="8cm-DW-pug" secondAttribute="leading" id="uMg-YL-AIB"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eGM-mm-l0u" secondAttribute="trailing" constant="16" id="1OB-a7-Qkg"/>
-                <constraint firstItem="eGM-mm-l0u" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Rsu-tW-wDg"/>
-                <constraint firstItem="eGM-mm-l0u" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ZD6-XS-XM5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eGM-mm-l0u" secondAttribute="bottom" constant="8" id="wu6-vO-rPo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8cm-DW-pug" secondAttribute="trailing" constant="16" id="Lpl-pO-tEL"/>
+                <constraint firstItem="8cm-DW-pug" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="MCQ-B7-cMN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8cm-DW-pug" secondAttribute="bottom" constant="8" id="NjD-hs-wNr"/>
+                <constraint firstItem="8cm-DW-pug" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="h7E-HC-Zke"/>
             </constraints>
-            <point key="canvasLocation" x="141" y="111"/>
+            <point key="canvasLocation" x="139.69465648854961" y="110.56338028169014"/>
         </view>
     </objects>
     <resources>

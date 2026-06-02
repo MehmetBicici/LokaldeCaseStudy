@@ -27,10 +27,12 @@ protocol ProvidersViewModelInterface {
     var providers: [ProviderListTableViewCellModel] { get }
     var searchQuery: String { get }
     
+    func getActiveFilters(for type: FilterType) -> [String]
     func loadFilters()
     func loadProviders()
     func updateSearchQuery(_ query: String)
-    func toggleFilterSelection(at index: Int)
+    func applyFilter(options: [FilterOptionModel], for type: FilterType)
+    func getAvailableOptions(for type: FilterType) -> [String]
 }
 
 final class ProvidersViewModel: ProvidersViewModelInterface {
@@ -43,6 +45,13 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
     private var allProviders: [ProviderListTableViewCellModel] = []
     
     private(set) var searchQuery: String = ""
+    private var activeCountryFilters: [String] = []
+    private var activeCityFilters: [String] = []
+    private var activeServiceFilters: [String] = []
+    
+    private var availableCountries: [String] = []
+    private var availableCities: [String] = []
+    private var availableServices: [String] = []
     
     init(providerService: ProviderServiceProtocol = MockDataService(), delegate: ProvidersViewModelDelegate) {
         self.providerService = providerService
@@ -75,18 +84,27 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
                         imageURL: dto.profileImageUrl,
                         specialty: dto.specialty,
                         city: dto.city,
-                        rating: dto.rating
+                        rating: dto.rating,
+                        country: dto.country
                     )
                 }
                 
                 self.allProviders = mappedProviders
                 self.providers = mappedProviders
                 
-                guard !allProviders.isEmpty else {
+                let uniqueCountries = Set(dtoList.compactMap { $0.country })
+                let uniqueCities = Set(dtoList.compactMap { $0.city })
+                let uniqueServices = Set(dtoList.compactMap { $0.specialty })
+                
+                self.availableCountries = Array(uniqueCountries).sorted()
+                self.availableCities = Array(uniqueCities).sorted()
+                self.availableServices = Array(uniqueServices).sorted()
+                
+                guard !self.allProviders.isEmpty else {
                     self.delegate?.showEmptyState()
                     return
                 }
-
+                
                 self.delegate?.reloadProviders()
                 
             case .failure(let error):
@@ -99,34 +117,78 @@ final class ProvidersViewModel: ProvidersViewModelInterface {
     func updateSearchQuery(_ query: String) {
         searchQuery = query
         
-        if query.isEmpty {
-            providers = allProviders
-            delegate?.reloadProviders()
-            return
+        applyAllFilters()
+    }
+    
+    func applyFilter(options: [FilterOptionModel], for type: FilterType) {
+        let selectedTitles = options.map { $0.title }
+        let hasActiveFilters = !selectedTitles.isEmpty
+        
+        switch type {
+        case .country:
+            activeCountryFilters = selectedTitles
+            filters[0].isSelected = hasActiveFilters
+        case .city:
+            activeCityFilters = selectedTitles
+            filters[1].isSelected = hasActiveFilters
+        case .services:
+            activeServiceFilters = selectedTitles
+            filters[2].isSelected = hasActiveFilters
         }
         
-        guard query.count >= Constants.queryCount else { return }
+        delegate?.reloadFilters()
         
-        let lowercasedQuery = query.lowercased()
-        
+        applyAllFilters()
+    }
+    
+    func getActiveFilters(for type: FilterType) -> [String] {
+        switch type {
+        case .country: return activeCountryFilters
+        case .city: return activeCityFilters
+        case .services: return activeServiceFilters
+        }
+    }
+    
+    func getAvailableOptions(for type: FilterType) -> [String] {
+        switch type {
+        case .country: return availableCountries
+        case .city: return availableCities
+        case .services: return availableServices
+        }
+    }
+}
+
+private extension ProvidersViewModel {
+    func applyAllFilters() {
+        let isSearchActive = !searchQuery.isEmpty && searchQuery.count >= Constants.queryCount
+        let query = isSearchActive ? searchQuery.lowercased() : ""
+
         providers = allProviders.filter { provider in
-            let matchName = provider.name?.lowercased().contains(lowercasedQuery)
-            let matchSpecialty = provider.specialty?.lowercased().contains(lowercasedQuery)
-            return matchName ?? false || matchSpecialty ?? false
+            
+            let matchesSearch = !isSearchActive ||
+                (provider.name?.lowercased().contains(query) ?? false) ||
+                (provider.specialty?.lowercased().contains(query) ?? false)
+
+            let matchesCountry = activeCountryFilters.isEmpty ||
+                activeCountryFilters.contains(provider.country ?? "")
+
+            let matchesCity = activeCityFilters.isEmpty ||
+                activeCityFilters.contains(provider.city ?? "")
+
+            let matchesService = activeServiceFilters.isEmpty ||
+                activeServiceFilters.contains(provider.specialty ?? "")
+
+            return matchesSearch &&
+                   matchesCountry &&
+                   matchesCity &&
+                   matchesService
         }
-        
+
         guard !providers.isEmpty else {
             delegate?.showEmptyState()
             return
         }
 
         delegate?.reloadProviders()
-    }
-    
-    func toggleFilterSelection(at index: Int) {
-        filters[index].isSelected.toggle()
-        
-        let activeFilters = filters.filter { $0.isSelected }.map { $0.title }
-        print("Aktif Filtreler: \(activeFilters)")
     }
 }
