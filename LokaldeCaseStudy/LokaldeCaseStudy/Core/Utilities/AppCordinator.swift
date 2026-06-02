@@ -43,9 +43,7 @@ final class AppCoordinator: Coordinator {
 // MARK: - SplashNavigationDelegate
 extension AppCoordinator: SplashNavigationDelegate {
     func navigateToProviderList() {
-        let providerListVC = UIViewController()
-        providerListVC.view.backgroundColor = .black
-        providerListVC.title = "Providers"
+        let providerListVC = ProvidersViewController()
         
         UIView.transition(with: navigationController.view,
                           duration: Constants.duration,
