@@ -9,6 +9,7 @@ import UIKit
 
 private enum Constants {
     static let duration: CGFloat = 0.5
+    static let splashNibName: String = "SplashViewController"
 }
 
 protocol Coordinator: AnyObject {
@@ -18,6 +19,13 @@ protocol Coordinator: AnyObject {
 
 protocol SplashNavigationDelegate: AnyObject {
     func navigateToProviderList()
+}
+
+protocol ProvidersNavigationDelegate: AnyObject {
+    func presentFilterSheet(for type: FilterType,
+                            filterDelegate: FiltersViewControllerDelegate,
+                            activeFilters: [String],
+                            availableOptions: [String])
 }
 
 final class AppCoordinator: Coordinator {
@@ -30,7 +38,8 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let splashVC = SplashViewController(nibName: "SplashViewController", bundle: nil)
+        let splashVC = SplashViewController(nibName: Constants.splashNibName,
+                                            bundle: nil)
         splashVC.navigationDelegate = self
         
         navigationController.setViewControllers([splashVC], animated: false)
@@ -40,10 +49,11 @@ final class AppCoordinator: Coordinator {
     }
 }
 
-// MARK: - SplashNavigationDelegate
 extension AppCoordinator: SplashNavigationDelegate {
     func navigateToProviderList() {
         let providerListVC = ProvidersViewController()
+        
+        providerListVC.navigationDelegate = self
         
         UIView.transition(with: navigationController.view,
                           duration: Constants.duration,
@@ -51,5 +61,27 @@ extension AppCoordinator: SplashNavigationDelegate {
                           animations: {
             self.navigationController.setViewControllers([providerListVC], animated: false)
         }, completion: nil)
+    }
+}
+
+extension AppCoordinator: ProvidersNavigationDelegate {
+    func presentFilterSheet(for type: FilterType,
+                            filterDelegate: FiltersViewControllerDelegate,
+                            activeFilters: [String],
+                            availableOptions: [String]) {
+        
+        let filterViewModel = FiltersViewModel(filterType: type,
+                                               activeSelection: activeFilters,
+                                               availableOptions: availableOptions)
+        
+        let filterVC = FiltersViewController(viewModel: filterViewModel, delegate: filterDelegate)
+        
+        if let sheet = filterVC.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = false
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        
+        navigationController.present(filterVC, animated: true)
     }
 }
