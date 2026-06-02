@@ -7,7 +7,17 @@
 
 import UIKit
 
+private enum Constants {
+    static let indicatorColor: UIColor = .gray
+}
+
 class BaseViewController: UIViewController {
+    
+    private var spinner: UIActivityIndicatorView?
+    
+    deinit {
+        debugPrint("🗑 DEINIT DETECTED: \(String(describing: type(of: self))) removed from the memory.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +34,28 @@ class BaseViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func showLoading() {}
-    
-    func hideLoading() {}
-    
-    func showErrorAlert(message: String) {
-        let alert = UIAlertController(title: "Hata", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default))
-        present(alert, animated: true)
+    func showLoading() {
+        guard spinner == nil else { return }
+        
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = Constants.indicatorColor
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        
+        view.addSubview(indicator)
+        
+        NSLayoutConstraint.activate([
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        indicator.startAnimating()
+        self.spinner = indicator
     }
     
-    deinit {
-        print("🗑 DEINIT DETECTED: \(String(describing: type(of: self))) removed from the memory.")
+    func hideLoading() {
+        spinner?.stopAnimating()
+        spinner?.removeFromSuperview()
+        spinner = nil
     }
 }
