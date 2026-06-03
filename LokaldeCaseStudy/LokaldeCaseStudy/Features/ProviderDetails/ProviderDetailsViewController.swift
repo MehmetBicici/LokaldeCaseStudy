@@ -125,32 +125,32 @@ private enum Constants {
 
 final class ProviderDetailsViewController: BaseViewController {
     
-    @IBOutlet weak var providerImageContainerView: UIView!
-    @IBOutlet weak var providerImageView: UIImageView!
-    @IBOutlet weak var providerNameLabel: UILabel!
-    @IBOutlet weak var starRatingView: StarRatingView!
-    @IBOutlet weak var providerTitleLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var bookingButton: AppButton!
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var biographyTitleLabel: UILabel!
-    @IBOutlet weak var biographyDescriptionContainerView: UIView!
+    @IBOutlet private weak var providerImageContainerView: UIView!
+    @IBOutlet private weak var providerImageView: UIImageView!
+    @IBOutlet private weak var providerNameLabel: UILabel!
+    @IBOutlet private weak var starRatingView: StarRatingView!
+    @IBOutlet private weak var providerTitleLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var bookingButton: AppButton!
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var biographyTitleLabel: UILabel!
+    @IBOutlet private weak var biographyDescriptionContainerView: UIView!
     
-    @IBOutlet weak var biographyDescriptionLabel: UILabel!
-    @IBOutlet weak var contactTitleLabel: UILabel!
-    @IBOutlet weak var contactContainerView: UIStackView!
+    @IBOutlet private weak var biographyDescriptionLabel: UILabel!
+    @IBOutlet private weak var contactTitleLabel: UILabel!
+    @IBOutlet private weak var contactContainerView: UIStackView!
     
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var phoneTitleLabel: UILabel!
-    @IBOutlet weak var phoneImageView: UIImageView!
+    @IBOutlet private weak var phoneLabel: UILabel!
+    @IBOutlet private weak var phoneTitleLabel: UILabel!
+    @IBOutlet private weak var phoneImageView: UIImageView!
     
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var emailTitleLabel: UILabel!
-    @IBOutlet weak var emailImageView: UIImageView!
+    @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var emailTitleLabel: UILabel!
+    @IBOutlet private weak var emailImageView: UIImageView!
     
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var locationTitleLabel: UILabel!
-    @IBOutlet weak var locationImageView: UIImageView!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var locationTitleLabel: UILabel!
+    @IBOutlet private weak var locationImageView: UIImageView!
     
     weak var navigationDelegate: ProviderDetailsNavigationDelegate?
     
